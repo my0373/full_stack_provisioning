@@ -22,3 +22,4 @@
 
 - name: generate report and host via jboss eap
   shell: oscap xccdf eval  --profile xccdf_org.ssgproject.content_profile_cis_customized --tailoring-file /var/lib/openscap/content/openscap_tailoring.xml --report /opt/jboss/jboss-eap-7.3/welcome-content/report.html /var/lib/openscap/content/openscap_content.xml
+  ignore_errors: true
