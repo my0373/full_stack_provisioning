@@ -1,0 +1,5 @@
+- name: generate openscap report
+  hosts: new_vms
+  become: true
+  roles:
+    - openscap_scan

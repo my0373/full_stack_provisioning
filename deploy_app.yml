@@ -19,3 +19,4 @@
         target_id: "{{ instance_id }}"
         target_port: 8080
         state: present
+      delegate_to: localhost

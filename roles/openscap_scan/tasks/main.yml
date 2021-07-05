@@ -1,0 +1,24 @@
+---
+
+- name: install openscap scanner
+  ansible.builtin.yum:
+    name: openscap-scanner
+    state: installed
+
+- name: create directory for openscap files
+  ansible.builtin.file:
+    path: /var/lib/openscap/content
+    state: directory
+    mode: 0755
+
+- name: copy over openscap config files
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: /var/lib/openscap/content
+    mode: 0644
+  loop: 
+    - openscap_tailoring.xml
+    - openscap_content.xml
+
+- name: generate report and host via jboss eap
+  shell: oscap xccdf eval  --profile xccdf_org.ssgproject.content_profile_cis_customized --tailoring-file /var/lib/openscap/content/openscap_tailoring.xml --report /opt/jboss/jboss-eap-7.3/welcome-content/report.html /var/lib/openscap/content/openscap_content.xml
