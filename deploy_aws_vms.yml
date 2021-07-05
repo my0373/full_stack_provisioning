@@ -1,0 +1,6 @@
+- name: provision aws rhel instances
+  hosts: localhost
+  gather_facts: false
+  roles:
+    - find_ami
+    - rhel_multi_instances

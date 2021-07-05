@@ -1,0 +1,5 @@
+- name: provision aws rhel instances
+  hosts: localhost
+  gather_facts: false
+  roles:
+    - aws_vpc

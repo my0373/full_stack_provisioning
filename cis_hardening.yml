@@ -1,0 +1,21 @@
+- name: run cis hardening
+  hosts: new_vms
+  remote_user: ec2-user
+  become: yes
+  roles:
+    - pharriso.rhel_cis.cis_services
+    - pharriso.rhel_cis.cis_ssh
+    - pharriso.rhel_cis.cis_cron
+    - pharriso.rhel_cis.cis_file_permissions
+    - pharriso.rhel_cis.cis_firewall
+    - pharriso.rhel_cis.cis_audit
+    - pharriso.rhel_cis.cis_login_banners
+    - pharriso.rhel_cis.cis_remove_packages
+    - pharriso.rhel_cis.cis_selinux
+    - pharriso.rhel_cis.cis_kernel_settings
+    - pharriso.rhel_cis.cis_kernel_modules
+    - pharriso.rhel_cis.cis_grub
+    - pharriso.rhel_cis.cis_rsyslog
+    - pharriso.rhel_cis.cis_single_user
+    - pharriso.rhel_cis.cis_account_settings
+    - pharriso.rhel_cis.cis_pam

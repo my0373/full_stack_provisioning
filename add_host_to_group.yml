@@ -1,0 +1,10 @@
+---
+
+- hosts: localhost
+  gather_facts: false
+  tasks:
+  - elb_target:
+      target_group_name: number
+      target_id: i-07697f6ac7b1756b3
+      target_port: 8080
+      state: present

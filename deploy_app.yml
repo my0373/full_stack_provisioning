@@ -1,0 +1,15 @@
+- name: deploy my app
+  hosts: new_vms
+  remote_user: ec2-user
+  become: yes
+  vars:
+    app_download_server: https://artifactory.pharriso.co.uk
+    app_download_path: artifactory/generic-local
+    jboss_home: /opt/jboss/jboss-eap-7.3
+  tasks:
+    - name: grab the app war file
+      get_url:
+        url: "{{ app_download_server }}/{{ app_download_path }}/{{ app }}.war"
+        dest: "{{ jboss_home }}/standalone/deployments/"
+        validate_certs: false
+

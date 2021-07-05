@@ -1,0 +1,39 @@
+---
+
+- name: create elb group
+  elb_target_group:
+    name: "{{ item }}"
+    protocol: http
+    port: 80
+    vpc_id: "{{ vpc.vpc.id }}"
+    state: present
+  loop:
+    - kitchensink
+    - numberguess
+    - default
+
+- name: create application elb
+  elb_application_lb:
+    name: ansible-lb
+    state: present
+    security_groups:
+      - "{{ security_group }}"
+    subnets:
+      - subnet-02d11a47b83818437
+      - subnet-04650bdd42af55be2
+    listeners:
+      - Protocol: HTTP
+        Port: 80
+        DefaultActions:
+          - Type: forward
+            TargetGroupName: default
+        Rules:
+          - Conditions:
+              - Field: path-pattern
+                Values:
+                  - '/kitchensink'
+            Priority: '1'
+            Actions:
+              - TargetGroupName: kitchensink
+                Type: forward
+
