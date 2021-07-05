@@ -1,7 +1,5 @@
 - name: run cis hardening
   hosts: new_vms
-  remote_user: ec2-user
-  become: yes
   roles:
     - pharriso.rhel_cis.cis_services
     - pharriso.rhel_cis.cis_ssh

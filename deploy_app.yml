@@ -1,7 +1,5 @@
 - name: deploy my app
   hosts: new_vms
-  remote_user: ec2-user
-  become: yes
   vars:
     app_download_server: https://artifactory.pharriso.co.uk
     app_download_path: artifactory/generic-local
