@@ -1,5 +1,6 @@
 - name: run cis hardening
   hosts: new_vms
+  become: true
   roles:
     - pharriso.rhel_cis.cis_services
     - pharriso.rhel_cis.cis_ssh

@@ -1,5 +1,6 @@
 - name: deploy my app
   hosts: new_vms
+  become: true
   vars:
     app_download_server: https://artifactory.pharriso.co.uk
     app_download_path: artifactory/generic-local
