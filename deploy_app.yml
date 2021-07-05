@@ -4,11 +4,18 @@
   vars:
     app_download_server: https://artifactory.pharriso.co.uk
     app_download_path: artifactory/generic-local
-    jboss_home: /opt/jboss/jboss-eap-7.3
+  roles:
+    - pharriso.jboss.install_jboss_eap
   tasks:
-    - name: grab the app war file
+    - name: deploy war file to jboss deployments directory
       get_url:
         url: "{{ app_download_server }}/{{ app_download_path }}/{{ app }}.war"
         dest: "{{ jboss_home }}/standalone/deployments/"
         validate_certs: false
 
+    - name: add instance to loadbalancer target group
+      elb_target:
+        target_group_name: "{{ instance_role }}" 
+        target_id: "{{ ec2.instances.id }}"
+        target_port: 8080
+        state: present

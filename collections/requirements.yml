@@ -6,4 +6,4 @@ collections:
 - name: pharriso.rhel_cis
   version: 1.0.0
 - name: pharriso.jboss
-  version: 1.0.2
+  version: 1.0.3
