@@ -3,8 +3,9 @@
 instance_count: 1
 ami_id: ami-0de312f3226dd2820
 os: rhel8
+instance_role: webserver
 instance_tags:
-  role: webserver
+  role: "{{ instance_role }}"
   os: "{{ instance_os | default('linux') }}"
 count_tag:
-  role: webserver
+  role: "{{ instance_role }}"
