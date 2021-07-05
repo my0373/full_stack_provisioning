@@ -19,5 +19,6 @@
         target_id: "{{ instance_id }}"
         target_port: 8080
         state: present
+        region: "{{ ec2_region }}"
       delegate_to: localhost
       become: false
