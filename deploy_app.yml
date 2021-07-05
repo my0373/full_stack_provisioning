@@ -10,7 +10,7 @@
     - name: deploy war file to jboss deployments directory
       get_url:
         url: "{{ app_download_server }}/{{ app_download_path }}/{{ app }}.war"
-        dest: "{{ jboss_home }}/standalone/deployments/"
+        dest: "{{ jboss_home }}/standalone/deployments/{{ instance_role }}.war"
         validate_certs: false
 
     - name: add instance to loadbalancer target group
