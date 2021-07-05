@@ -25,15 +25,12 @@
   loop_control:
     label: "{{ item.public_ip }}"
 
-- debug:
-    var: ec2
-
 - name: add hosts to play
   add_host:
     name: "{{ item.public_ip }}"
     groups:
     - new_vms
+    instance_id: "{{ item.id }}"
   loop: "{{ ec2.instances }}"
   loop_control:
     label: "{{ item.public_ip }}"
-

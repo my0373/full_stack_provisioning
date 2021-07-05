@@ -16,6 +16,6 @@
     - name: add instance to loadbalancer target group
       elb_target:
         target_group_name: "{{ instance_role }}" 
-        target_id: "{{ ec2.instances.id }}"
+        target_id: "{{ instance_id }}"
         target_port: 8080
         state: present
