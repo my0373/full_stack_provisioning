@@ -35,7 +35,7 @@
   register: route_table
 
 - name: set up route table
-  community.aws.ec2_vpc_route_table:
+  amazon.aws.ec2_vpc_route_table:
     vpc_id: "{{ vpc.vpc.id }}"
     region: "{{ ec2_region }}"
     route_table_id: "{{ route_table.route_tables[0].id }}"
