@@ -28,7 +28,7 @@
   register: igw
 
 - name: get route table id
-  community.aws.ec2_vpc_route_table_info:
+  amazon.aws.ec2_vpc_route_table_info:
     region: "{{ ec2_region }}"
     filters:
       vpc-id: "{{ vpc.vpc.id }}"
