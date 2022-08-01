@@ -1,7 +1,6 @@
 ---
-
 - import_playbook: deploy_aws_network.yml
 - import_playbook: deploy_aws_vms.yml
-- import_playbook: cis_hardening.yml
-- import_playbook: deploy_app.yml
-- import_playbook: openscap_scan.yml
+# - import_playbook: cis_hardening.yml
+# - import_playbook: deploy_app.yml
+# - import_playbook: openscap_scan.yml
