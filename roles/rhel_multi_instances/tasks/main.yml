@@ -9,7 +9,7 @@
     vpc_subnet_id: "{{ subnet.subnet.id }}"
     group: "{{ security_group }}"
     assign_public_ip: yes
-    user_data: "{{ lookup('file', 'userdata.txt') | default(omit) }}"
+    #user_data: "{{ lookup('file', 'userdata.txt') | default(omit) }}"
     instance_tags: "{{ instance_tags }}"
     count_tag: "{{ count_tag }}"
     exact_count: "{{ instance_count }}"
