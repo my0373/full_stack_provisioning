@@ -1,5 +1,4 @@
 ---
-
 - name: create demo vpc
   amazon.aws.ec2_vpc_net:
     name: "{{ vpc_name }}"
@@ -22,7 +21,7 @@
       subnet: "{{ subnet }}"
 
 - name: create internet gateway
-  community.aws.ec2_vpc_igw:
+  amazon.aws.ec2_vpc_igw:
     vpc_id: "{{ vpc.vpc.id }}"
     state: present
     region: "{{ ec2_region }}"
