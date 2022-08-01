@@ -1,9 +1,8 @@
 ---
 collections:
-
-- name: amazon.aws
-- name: community.aws
-- name: pharriso.rhel_cis
-  version: 1.0.0
-- name: pharriso.jboss
-  version: 1.0.3
+  - name: amazon.aws
+  - name: community.aws
+  - name: pharriso.rhel_cis
+    version: 1.0.0
+#- name: pharriso.jboss
+#  version: 1.0.3
